@@ -1,5 +1,18 @@
+p {
+  padding: 10px;
+}
+
 footer {
   background-color: darkblue;
   text-align: center;
   color: cornsilk;
 }
+
+fa-icon {
+  margin: 20px 10px;
+}
+
+.container-fluid {
+  padding: 2% 5%;
+}
+
