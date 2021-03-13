@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ProductslistComponent } from './productslist/productslist.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ProductslistComponent } from './components/productslist/productslist.component';
 import {RouterModule} from '@angular/router';
+import { ProductComponent } from './components/product/product.component';
+import { StarComponent } from './components/star/star.component';
+import { ConverttospacePipe } from './pipes/converttospace.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import {RouterModule} from '@angular/router';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ProductslistComponent
+    ProductslistComponent,
+    ProductComponent,
+    StarComponent,
+    ConverttospacePipe
   ],
   imports: [
     BrowserModule,
