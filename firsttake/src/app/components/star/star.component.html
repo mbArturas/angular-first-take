@@ -1,1 +1,13 @@
-<p>star works!</p>
+<div class="crop"
+     [style.width.px]="starWidth"
+     [title]="rating"
+     (click)="OnRatingClicked()"
+>
+  <div style="width: 75px">
+    <span (click)="OnStarClicked(1)" class="fa fa-star"></span>
+    <span (click)="OnStarClicked(2)" class="fa fa-star"></span>
+    <span (click)="OnStarClicked(3)" class="fa fa-star"></span>
+    <span (click)="OnStarClicked(4)" class="fa fa-star"></span>
+    <span (click)="OnStarClicked(5)" class="fa fa-star"></span>
+  </div>
+</div>

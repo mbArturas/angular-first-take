@@ -4,34 +4,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { ProductslistComponent } from './components/productslist/productslist.component';
-import {RouterModule} from '@angular/router';
+import { ProductsComponent} from './components/products/products.component';
+import { RouterModule } from '@angular/router';
 import { ProductComponent } from './components/product/product.component';
 import { StarComponent } from './components/star/star.component';
 import { ConverttospacePipe } from './pipes/converttospace.pipe';
+import { ProductGuard } from './guards/product.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    ProductsComponent,
     HomeComponent,
     AboutComponent,
-    ProductslistComponent,
     ProductComponent,
     StarComponent,
     ConverttospacePipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     FontAwesomeModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'about', component: AboutComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'products', component: ProductslistComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'products/:id', canActivate: [ProductGuard], component: ProductComponent},
       { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ])
   ],

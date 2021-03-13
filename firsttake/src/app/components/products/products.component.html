@@ -1,0 +1,46 @@
+<div *ngIf="errorReturned || errorMsg" class="alert alert-danger" role="alert">
+  <div>{{ errorMsg }}</div>
+</div>
+
+<label>Filter:</label>
+<input type="text" (input)="filter($event.target.value)">
+
+<div class="card">
+  <div class="card-header">
+    Products table
+  </div>
+  <div class="card-body">
+    <table *ngIf="products && products.length" class="table table-hover">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Count</th>
+        <th>Price</th>
+        <th>Stars</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor='let product of filteredProducts'>
+        <td><a [routerLink]="['/products', product.id]">
+          {{ product.artist | lowercase | converttospace: '-' | converttospace: '$' }}
+        </a></td>
+        <td>{{ product.album }}</td>
+        <td>{{ product.price | currency:'EUR' }}</td>
+        <!-- parent -->
+        <td><app-star
+          [rating]="product.rating"
+          (ratingClicked)="onRatingClicked($event)"
+          (startClicked)="onStartClicked($event)"
+        >
+        </app-star></td>
+        <td><button (click)="onDeleteClicked(product.id)" class="btn btn-outline-danger">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    {{ ratingClickedMessage }}<br>
+    {{ 'Star: ' + starClicked + ' clicked' }}
+  </div>
+</div>
